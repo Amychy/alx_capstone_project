@@ -197,4 +197,4 @@ While the Quiz Game Project provides an engaging and educational experience, the
 Feel free to reach out for questions, feedback, or collaboration opportunities. You can contact me via:
 
 - Email: [bizzcozy@gmail.com](mailto:bizzcozy@gmail.com)
-- GitHub: [Your GitHub Profile](https://github.com/Amychy/)
+- GitHub: [My GitHub Profile](https://github.com/Amychy/)
