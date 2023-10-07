@@ -43,6 +43,8 @@ We welcome contributions to improve and expand this project. If you're intereste
 
 ## License
 
+This project is licensed under the [MIT License](LICENSE.md).
+
 ## Features and Functionality
 
 The Quiz Game Project offers a range of features and functionalities to provide an engaging and educational experience for users:
@@ -150,8 +152,49 @@ The Quiz Game Project is built using a combination of technologies, languages, a
 
 These technologies work together to create a seamless and feature-rich quiz game that offers an engaging and educational experience for users.
 
-This project is licensed under the [MIT License](LICENSE.md).
+## Screenshots or Demo
 
-## Contact
+### Figma Design
 
-If you have any questions or feedback, feel free to contact us at [bizzcozy@gmail.com](mailto:bizzcozy@gmail.com).
+- You can view the design of the user interface for the Quiz Game Project in Figma [here](https://www.figma.com/file/GUT2wW5yRStkzSm58w0pyt/alx_capstone_project?type=design&node-id=0%3A1&mode=design&t=zX4TKbVfu6YTFeE6-1).
+
+### Screenshots (if available)
+
+- Here are some screenshots showcasing the project's appearance and functionality:
+
+![Screenshot 1](url-to-screenshot1)
+*Description of Screenshot 1.*
+
+![Screenshot 2](url-to-screenshot2)
+*Description of Screenshot 2.*
+
+### Live Demo (if available)
+
+- If a live demo of the Quiz Game Project is available, you can access it [here](demo-url).
+
+## Roadmap and Future Enhancements
+
+While the Quiz Game Project provides an engaging and educational experience, there are several potential improvements and future enhancements we plan to explore:
+
+1. **More Topics**: Expand the variety of topics available for quizzes, catering to a broader audience with diverse interests.
+
+2. **User Accounts**: Implement user accounts and profiles to allow users to track their progress and past quiz scores.
+
+3. **Leaderboard**: Create a global or topic-specific leaderboard to encourage friendly competition among users.
+
+4. **Multiplayer Mode**: Develop a multiplayer mode, allowing users to compete with friends or random opponents in real-time.
+
+5. **Additional Features**: Add more interactive elements, such as hints, explanations, or multimedia content to enhance the learning experience.
+
+6. **Performance Optimization**: Continuously optimize the application for improved performance and responsiveness.
+
+7. **Accessibility**: Enhance accessibility features to ensure that the quiz game is usable by individuals with disabilities.
+
+8. **Mobile Apps**: Consider developing mobile apps for iOS and Android platforms to reach a wider audience.
+
+## Contact Information
+
+Feel free to reach out for questions, feedback, or collaboration opportunities. You can contact me via:
+
+- Email: [bizzcozy@gmail.com](mailto:bizzcozy@gmail.com)
+- GitHub: [Your GitHub Profile](https://github.com/Amychy/)
