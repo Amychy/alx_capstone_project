@@ -158,6 +158,10 @@ These technologies work together to create a seamless and feature-rich quiz game
 
 - You can view the design of the user interface for the Quiz Game Project in Figma [here](https://www.figma.com/file/GUT2wW5yRStkzSm58w0pyt/alx_capstone_project?type=design&node-id=0%3A1&mode=design&t=zX4TKbVfu6YTFeE6-1).
 
+### Work flow
+- This is an image of the flow chart
+- ![image](https://github.com/Amychy/alx_capstone_project/assets/119742258/b2efaa12-33ba-46db-bf30-22bd2464f626)
+
 ### Screenshots (if available)
 
 - Here are some screenshots showcasing the project's appearance and functionality:
