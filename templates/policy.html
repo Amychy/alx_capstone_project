@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QuizWiz - Test Your Knowledge</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ url_for('static', filename='images/logo.png') }}">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.15/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body>
+    {% include "header.html" %}
+
+    <main class="md:my-20 my-10 mx-10 md:mx-28">
+        <div class="p-2.5 rounded-lg catergory-border my-0 mx-auto text-center md:w-52">
+            <h1 class="uppercase black text-2xl font-bold">privacy policy</h1>
+        </div>
+        <section class="black mt-20">
+            <h2 class="font-semibold text-xl pb-7">Effective Date: 9/10/2023</h2>
+            <p class="text-lg">This Privacy Policy outlines the types of personal information that Quizwiz ("we," "us," or "our") may collect, use, and store when you visit or interact with our website.</p>
+            <h2 class="font-semibold text-xl py-5">Information We Collect</h2>
+            <ul class="text-lg list-disc pl-7">
+                <li>Log Data: Like many website operators, we collect information that your browser sends whenever you visit our website. This Log Data may include information such as your computer's Internet Protocol ("IP") address, browser type, browser version, the pages of our website that you visit, the time and date of your visit, the time spent on those pages, and other statistics.</li>
+                <li>Cookies: We use "cookies" to collect information and improve our website's functionality. You can instruct your browser to refuse all cookies or to indicate when a cookie is being sent. However, if you do not accept cookies, you may not be able to use some portions of our website.</li>
+            </ul>
+            <h2 class="font-semibold text-xl py-5">Use of information</h2>
+            <p class="text-lg pb-3">we use the collected information for various purposes:</p>
+            <ul class="text-lg list-disc pl-7">
+                <li>To improve and maintain our website.</li>
+                <li>To personalize your experience on our website.</li>
+                <li>To respond to your inquiries, comments, or questions.</li>
+                <li>To provide updates, news, and other information about our website.</li>
+            </ul>
+            <h2 class="font-semibold text-xl py-5">Data Security</h2>
+            <p class="text-lg">We are committed to protecting your information. While we strive to use commercially acceptable means to protect your personal information, we cannot guarantee its absolute security.</p>
+            <h2 class="font-semibold text-xl py-5">links to Other Sites</h2>
+            <p class="text-lg">Our website may contain links to other sites. If you click on a third-party link, you will be directed to that site. We strongly advise you to review the Privacy Policy of every site you visit.</p>
+            <h2 class="font-semibold text-xl py-5">Changes to This Privacy Policy</h2>
+            <p class="text-lg">We may update our Privacy Policy from time to time. We will notify you of any changes by posting the new Privacy Policy on this page.</p>
+            <h2 class="font-semibold text-xl py-5">Contact Us</h2>
+            <p class="text-lg">If you have any questions about this Privacy Policy, please contact us at <span class="text-blue-600 cursor-pointer" onclick="location.href='/contact';">our contact page</span>.</p>
+        </section>
+    </main>
+
+    {% include "footer.html" %}
+
+    <script src="../static/js/hamburger.js"></script>
+</body>
+</html>

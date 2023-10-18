@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QuizWiz - Test Your Knowledge</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ url_for('static', filename='images/logo.png') }}">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.15/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body>
+    {% include "header.html" %}
+
+    <main class="md:my-20 my-10 mx-10 md:mx-28">
+        <div class="p-2.5 rounded-lg catergory-border my-0 mx-auto text-center md:w-44">
+            <h1 class="uppercase black text-2xl font-bold">Contact us</h1>
+        </div>
+        <section class="black mt-20">
+            <h2 class="font-semibold text-xl py-5">Do you have questions, suggestions, or just want to get in touch, we'd love to hear from you! We value your feedback and are always looking to improve, so please don't hesitate to share any comments or suggestions about Quizwiz. Your input is essential in helping us enhance your experience.</h2>
+
+            <form method="POST" action="/contact">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required><br>
+                
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required><br>
+                
+                <label for="subject">Subject:</label>
+                <input type="text" id="subject" name="subject" required><br>
+                
+                <label for="message">Message:</label>
+                <textarea id="message" name="message" rows="4" required></textarea><br>
+                
+                <button type="submit">Submit</button>
+            </form>
+            
+            
+        </section>
+    </main>
+
+    {% include "footer.html" %}
+
+    <script src="../static/js/hamburger.js"></script>
+</body>
+</html>

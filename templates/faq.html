@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QuizWiz - Test Your Knowledge</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ url_for('static', filename='images/logo.png') }}">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.15/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body>
+    {% include "header.html" %}
+
+    <main class="md:my-20 my-10 mx-10 md:mx-28">
+        <div class="p-2.5 rounded-lg catergory-border my-0 mx-auto text-center max-w-lg">
+            <h1 class="uppercase black text-2xl font-bold">Frequently asked questions (faq)</h1>
+        </div>
+    <ol class="list-decimal black mt-14">
+        <li>
+            <h2 class="font-semibold text-xl py-5">What is Quizwiz?</h2>
+            <p>Quizwiz is an interactive quiz game website designed to test your knowledge on a wide range of topics while having fun.</p>
+        </li>
+        <li>
+            <h2 class="font-semibold text-xl py-5">How do I play the quizzes?</h2>
+            <p>Playing quizzes on Quizwiz is easy. Simply select a quiz topic, answer the questions, and see how well you did at the end.</p>
+        </li>
+        <li>
+            <h2 class="font-semibold text-xl py-5">Do I need to create an account to play?</h2>
+            <p>No, you can enjoy our quizzes without creating an account. However, having an account allows you to track your scores and compete with others on the leaderboard.</p>
+        </li>
+        <li>
+            <h2 class="font-semibold text-xl py-5">Can I play on my mobile device?</h2>
+            <p>Yes, our website is responsive and can be enjoyed on desktops, tablets, and smartphones.</p>
+        </li>
+        <li>
+            <h2 class="font-semibold text-xl py-5">How do I reset my password?</h2>
+            <p>If you've created an account and need to reset your password, you can do so on the login page or on your profile page. Just follow the prompts as they come.</p>
+        </li>
+        <li>
+            <h2 class="font-semibold text-xl py-5">Are there different difficulty levels for quizzes?</h2>
+            <p>Some quizzes may have varying levels of difficulty. You can choose the one that suits your knowledge level.</p>
+        </li>
+        <li>
+            <h2 class="font-semibold text-xl py-5">How do I contact customer support?</h2>
+            <p>You can contact our customer support team, just visit the contact us page.</p>
+        </li>
+        <li>
+            <h2 class="font-semibold text-xl py-5">Are there any prizes for high scores?</h2>
+            <p>While we don't offer prizes, you can compete with others and earn a spot on our leaderboard.</p>
+        </li>
+        <li>
+            <h2 class="font-semibold text-xl py-5">Can I suggest a quiz topic?</h2>
+            <p>We welcome suggestions for new quiz topics! Please visit our Contact Us page to share your ideas with us.</p>
+        </li>
+        <li>
+            <h2 class="font-semibold text-xl py-5">Is Quizwiz free to use?</h2>
+            <p>Yes, Quizwiz is completely free to use, and you can enjoy unlimited quizzes.</p>
+        </li>
+        <li>
+            <h2 class="font-semibold text-xl py-5">Are there any age restrictions for using Quizwiz?</h2>
+            <p>Quizwiz is intended for users of all ages. However, parental guidance is advised for younger users, as some quiz topics may not be suitable for children.</p>
+        </li>
+        <li>
+            <h2 class="font-semibold text-xl py-5">Can I create my own quizzes on Quizwiz?</h2>
+            <p>Currently, we do not offer the option for users to create their own quizzes, but we're continuously adding new quiz topics for your enjoyment.</p>
+        </li>
+    </ol>
+    </main>
+
+    {% include "footer.html" %}
+
+    <script src="../static/js/hamburger.js"></script>
+</body>
+</html>

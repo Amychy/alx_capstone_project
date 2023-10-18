@@ -1,0 +1,23 @@
+
+    <header>
+        <nav class="flex header-bg flex-row justify-around items-center py-5 my-0 md:px-0 px-8 border-b">
+            <div class="cursor-pointer" onclick="location.href='/';">
+                <img class="w-28" src="{{ url_for('static', filename='images/logo.png') }}">
+            </div>
+            <a class="hamburger md:hidden" href="#" aria-label="Toggle Menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </a>
+            <ul class="nav-links black hidden md:flex md:flex-row text-sm md:text-xl font-medium md:gap-16 gap-3.5 items-left md:items-center">
+                <li class="nav_link nav_links cursor-pointer nav_style" onclick="location.href='/';">QUIZES</li>
+                <li onclick="location.href='/leaderboard';" class="nav_link nav_links cursor-pointer nav_style">LEADERBOARD</li>
+                <li onclick="location.href='/faq';" class="nav_link nav_links cursor-pointer nav_style">FAQ</li>
+            </ul>
+            {% if current_user.is_authenticated %}
+            <button onclick="location.href='/dashboard';" class="cursor-pointer header-btn-bg text-white md:py-3 py-2 px-3 md:px-5 rounded-xl md:text-lg font-medium hover:opacity-75">My Account</button>
+        {% else %}
+            <button onclick="location.href='/login';" class="cursor-pointer header-btn-bg text-white md:py-3 py-2 px-3 md:px-5 rounded-xl md:text-lg font-medium hover:opacity-75">Login</button>
+        {% endif %}
+        </nav>
+    </header>

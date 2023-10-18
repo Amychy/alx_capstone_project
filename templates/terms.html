@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QuizWiz - Test Your Knowledge</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ url_for('static', filename='images/logo.png') }}">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.15/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body>
+    {% include "header.html" %}
+
+    <main class="md:my-20 my-10 mx-10 md:mx-28">
+        <div class="p-2.5 rounded-lg catergory-border my-0 mx-auto text-center md:w-60">
+            <h1 class="uppercase black text-2xl font-bold">terms of service</h1>
+        </div>
+        <section class="black mt-20">
+            <h2 class="font-semibold text-xl pb-7">Effective Date: 9/10/2023</h2>
+            <p class="text-lg pb-3">Welcome to Quizwiz!</p>
+            <p class="text-lg">By using our website, you agree to the following terms and conditions:</p>
+            <h2 class="font-semibold text-xl py-5">Acceptance of Terms</h2>
+            <ul class="text-lg list-disc pl-7">
+                <li>You agree to abide by these terms while using our website.</li>
+                <li>If you disagree with any part of these terms, please do not use our website.</li>
+            </ul>
+            <h2 class="font-semibold text-xl py-5">Changes to Terms</h2>
+            <ul class="text-lg list-disc pl-7">
+                <li>We may modify or update these terms at any time.</li>
+                <li>Continued use of our website means you accept the revised terms.</li>
+            </ul>
+            <h2 class="font-semibold text-xl py-5">User Conduct</h2>
+            <ul class="text-lg list-disc pl-7">
+                <li>Be respectful and considerate of others while using our website.</li>
+                <li>Do not engage in any harmful activities or misuse the website.</li>
+            </ul>
+            <h2 class="font-semibold text-xl py-5">Intellectual Property</h2>
+            <ul class="text-lg list-disc pl-7">
+                <li>All content on our website is protected by copyright.</li>
+                <li>You may not use our content without permission.</li>
+            </ul>
+            <h2 class="font-semibold text-xl py-5">Limitation of Liability</h2>
+            <ul class="text-lg list-disc pl-7">
+                <li>We are not responsible for any damages or issues related to your use of our website.</li>
+            </ul>
+            <h2 class="font-semibold text-xl py-5">Privacy</h2>
+            <ul class="text-lg list-disc pl-7">
+                <li>Please review <span class="text-blue-600 cursor-pointer" onclick="location.href='/policy';">our Privacy Policy</span> to understand how we handle your information.</li>
+            </ul>
+            <h2 class="font-semibold text-xl py-5">Termination</h2>
+            <ul class="text-lg list-disc pl-7">
+                <li>We may suspend or terminate your access to our website if you violate these terms.</li>
+            </ul>
+            <h2 class="font-semibold text-xl py-5">Contact Us</h2>
+            <p class="text-lg">If you have any questions or concerns, please contact us at <span class="text-blue-600 cursor-pointer" onclick="location.href='/contact';">our contact page</span>.</p>
+        </section>
+    </main>
+
+    {% include "footer.html" %}
+
+    <script src="../static/js/hamburger.js"></script>
+</body>
+</html>

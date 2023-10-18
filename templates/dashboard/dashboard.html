@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QuizWiz - Test Your Knowledge</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ url_for('static', filename='images/logo.png') }}">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.15/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body>
+    {% include "header.html" %}
+    <nav>
+        <ul class="flex  md:flex-row flex-col font-medium md:gap-16 gap-3.5
+         flex-row py-2 my-0 md:px-0 border-b footer-bg text-white items-center justify-around px-10 md:px-28">
+            <li class=" font-bold text-2xl">Hy, {{ username }}</li>
+            <li class="text-grey cursor-pointer" onclick="location.href='/dashboard';">My Dashboard</li>
+            <li class="text-grey cursor-pointer" onclick="location.href='/profile';">Profile</li>
+            <li class="text-grey font-bold cursor-pointer">
+                <form method="POST" action="{{ url_for('logout') }}">
+                    <button type="submit">Logout</button>
+                </form>
+            </li>
+        </ul>
+    </nav>
+    {% with messages = get_flashed_messages() %}
+  {% if messages %}
+  <ul class="flash-messages flex items-center justify-center black cursor-pointer text-xl font-medium md:gap-16 gap-3.5
+  flex-row py-2 my-0 md:px-0 border black">
+      {% for message in messages %}
+        <li class="flash-message">{{ message }}</li>
+      {% endfor %}
+    </ul>
+  {% endif %}
+{% endwith %}
+    <main class="md:my-20 my-10 mx-10 md:mx-28">
+    
+        <div class="p-2.5 rounded-lg catergory-border my-0 mx-auto text-center md:w-60">
+            <h1 class="uppercase black text-2xl font-bold">My Dashboard</h1>
+        </div>
+        <section>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Category</th>
+                        <th>Score</th>
+                        <th>Date</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for score in user_scores %}
+                        <tr>
+                            <td>{{ score.category }}</td>
+                            <td>{{ score.score }}</td>
+                            <td>{{ score.timestamp.strftime("%A, %d %B %Y") }}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            
+        </section>
+        
+    </main>
+
+    {% include "footer.html" %}
+
+    <script src="../static/js/hamburger.js"></script>
+</body>
+</html>

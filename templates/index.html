@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QuizWiz - Test Your Knowledge</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ url_for('static', filename='images/logo.png') }}">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.15/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body>
+    {% include "header.html" %}
+    <div class="md:max-w-2xl my-0 mx-auto">
+        <h1 class="text-3xl md:text-5xl text-center font-bold text-gray-900 mt-10">
+            Welcome to the QuizWiz!
+        </h1>
+        <p class="text-xl text-center text-gray-600 mt-4">
+            Start the Quiz Game by choosing any of the categories below. You will be given <strong>50 seconds</strong> to answer <strong>5 questions</strong>. Good Luck!
+        </p>
+    </div>
+
+    <main class="md:my-20 my-10 mx-10 md:mx-28">
+        
+        <section class="categories flex flex-col gap-10">
+            <div class="p-2.5 rounded-lg catergory-border md:w-80">
+                <h2 class="text-center black font-bold uppercase text-xl md:text-2xl">Newly Published Quiz</h2>
+            </div>
+            {% for category in categories %}
+            {% if category.name == 'Puzzle' %}
+                <a class="flex flex-col gap-4 category"  href="/quiz?category={{ category.name }}">
+                    <img src="{{ url_for('static', filename=category.image_url) }}" alt="{{ category.name }} Image">
+                    <p class="font-medium black text-xl">{{ category.name }}</p>
+                </a>
+                {% endif %}
+                {% endfor %}
+        </section>
+        <section class="more-categories flex flex-col gap-10 mt-10">
+            <div class="p-2.5 rounded-lg catergory-border md:text-left text-center md:w-52 whitespace-nowrap">
+                <h2 class="black font-bold uppercase text-xl md:text-2xl">Featured Quiz</h2>
+            </div>
+            <div class="flex md:flex-row flex-col gap-6 md:gap-0 justify-between">
+                {% for category in categories %}
+                    {% if category.name == 'Fun' %}
+                    <a class="flex flex-col gap-4 category" href="/quiz?category={{ category.name }}">
+                        <img src="{{ url_for('static', filename=category.image_url) }}" alt="{{ category.name }} Image">
+                        <p class="font-medium black text-xl">{{ category.name }}</p>
+                    </a>
+                    {% elif category.name == 'Science' %}
+                    <a class="flex flex-col gap-4 category" href="/quiz?category={{ category.name }}">
+                        <img src="{{ url_for('static', filename=category.image_url) }}" alt="{{ category.name }} Image">
+                        <p class="font-medium black text-xl">{{ category.name }}</p>
+                    </a>
+                    {% endif %}
+                {% endfor %}
+            </div>
+        </section>
+    </main>
+
+    {% include "footer.html" %}
+
+    <script src="../static/js/hamburger.js"></script>
+</body>
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QuizWiz - Test Your Knowledge</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ url_for('static', filename='images/logo.png') }}">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.15/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body>
+    {% include "header.html" %}
+    {% with messages = get_flashed_messages() %}
+  {% if messages %}
+  <ul class="flash-messages flex items-center justify-center black cursor-pointer text-xl font-medium md:gap-16 gap-3.5
+  flex-row py-2 my-0 md:px-0 border-b footer-bg text-white">
+      {% for message in messages %}
+        <li class="flash-message">{{ message }}</li>
+      {% endfor %}
+    </ul>
+  {% endif %}
+{% endwith %}
+
+
+    <main class="md:my-20 my-10 mx-10 md:mx-28 items-center justify-center flex flex-col">
+        <form method="POST" action="/register" onsubmit="return validateForm();" class="p-8 bg-white rounded shadow-md md:w-3/5 black">
+            <h2 class="text-2xl font-bold mb-4 text-center">Register</h2>
+            <input type="text" id="username" name="username" placeholder="Username" class="w-full p-2 border rounded mb-4 focus:outline-none">
+            <input type="text" id="full_name" name="full_name" placeholder="Full Name" class="w-full p-2 border rounded mb-4 focus:outline-none">
+            <input type="email" id="email" name="email" placeholder="Email" class="w-full p-2 border rounded mb-4 focus:outline-none">
+            <input type="password" id="password" name="password" placeholder="Password" class="w-full p-2 border rounded mb-4 focus:outline-none">
+            <button type="submit" class="w-full p-2 header-btn-bg font-bold text-white rounded my-3 hover:opacity-75">Register</button>
+        </form>
+        
+    </main>
+
+    {% include "footer.html" %}
+
+    <script src="../static/js/hamburger.js"></script>
+
+    <script>
+        function validateForm() {
+            // Get form field values
+            var username = document.getElementById("username").value;
+            var full_name = document.getElementById("full_name").value;
+            var email = document.getElementById("email").value;
+            var password = document.getElementById("password").value;
+            
+            // Simple checks for non-empty fields
+            if (username.trim() === "" || email.trim() === "") {
+                alert("Username and Email are required.");
+                return false; // Prevent form submission
+            }
+            
+            // Check Full Name format (first name and last name)
+            var fullNamePattern = /^[\w\s]+ [\w\s]+$/;
+            if (!full_name.match(fullNamePattern)) {
+                alert("Full Name should contain both First Name and Last Name.");
+                return false; // Prevent form submission
+            }
+            
+            // Check email format
+            var emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+            if (!email.match(emailPattern)) {
+                alert("Invalid email format.");
+                return false; // Prevent form submission
+            }
+            
+            // Check password strength (at least 8 characters, containing letters and numbers)
+            var passwordPattern = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/;
+            if (!password.match(passwordPattern)) {
+                alert("Password should be at least 8 characters and contain both letters and numbers.");
+                return false; // Prevent form submission
+            }
+            
+            return true; // Allow form submission if all checks pass
+        }
+    </script>
+    
+</body>
+</html>

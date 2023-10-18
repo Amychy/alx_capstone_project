@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QuizWiz - Test Your Knowledge</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ url_for('static', filename='images/logo.png') }}">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.15/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body>
+    {% include "header.html" %}
+
+    <main class="md:my-20 my-10 mx-10 md:mx-28">
+        <div class="p-2.5 rounded-lg catergory-border my-0 mx-auto text-center md:w-44">
+            <h1 class="uppercase black text-2xl font-bold">about us</h1>
+        </div>
+        <section class="black mt-20">
+            <p class="text-lg">Welcome to Quizwiz! We're delighted to have you here.</p>
+            <h2 class="font-semibold text-xl py-5">Mission: </h2>
+            <q class="text-lg">To provide an engaging and interactive platform for users to enhance their knowledge, challenge themselves, and have fun while learning about various topics.</q>
+            <h2 class="font-semibold text-xl py-5">Goal: </h2>
+            <q class="text-lg">To create an enjoyable and educational experience that encourages users to expand their knowledge, test their skills, and track their progress through a user-friendly quiz game interface.</q>
+            <h2 class="font-semibold text-xl py-5">Aim: </h2>
+            <ul class="text-lg list-disc pl-7">
+                <li><q class="text-lg">To offer a diverse range of quiz topics, catering to a wide audience with different interests.</q></li>
+                <li><q class="text-lg">To provide immediate feedback after each question, fostering a sense of achievement and learning.</q></li>
+                <li><q class="text-lg">To ensure accessibility and a seamless user experience across various devices.</q></li>
+                <li><q class="text-lg">To encourage competition and engagement by offering a scoring system and leaderboards.</q></li>
+            </ul>
+            <h2 class="font-semibold text-xl py-5">What We Offer: </h2>
+            <p class="text-lg pb-3">At Quizwiz, we offer an interactive quiz game experience designed to make learning fun and engaging. Our website provides the following:</p>
+            <ul class="text-lg list-disc pl-7">
+                <li>Interactive Quizzes: Test your knowledge on a variety of topics with our interactive quizzes.</li>
+                <li>Immediate Feedback: Receive instant feedback on your answers to help you understand your strengths and areas for improvement.</li>
+                <li>Diverse Topics: Explore a wide range of quiz topics, from science and history to pop culture and more.</li>
+                <li>Scoring System: Compete with yourself and others by earning scores and climbing the leaderboard.</li>
+                <li>Responsive Design: Enjoy the quiz game on your desktop, tablet, or smartphone with our user-friendly and accessible design.</li>
+                <li>Educational Value: Learn while having fun and challenge yourself to achieve higher scores.</li>
+            </ul>
+        </section>
+    </main>
+
+    {% include "footer.html" %}
+
+    <script src="../static/js/hamburger.js"></script>
+</body>
+</html>

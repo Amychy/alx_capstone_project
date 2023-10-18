@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QuizWiz - Test Your Knowledge</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ url_for('static', filename='images/logo.png') }}">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.15/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body>
+    {% include "header.html" %}
+    <nav>
+        <ul class="flex  md:flex-row flex-col font-medium md:gap-16 gap-3.5
+         flex-row py-2 my-0 md:px-0 border-b footer-bg text-white items-center justify-around px-10 md:px-28">
+            <li class=" font-bold text-2xl">Hy, {{ username }}</li>
+            <li class="text-grey cursor-pointer" onclick="location.href='/dashboard';">My Dashboard</li>
+            <li class="text-grey cursor-pointer" onclick="location.href='/profile';">Profile</li>
+            <li class="text-grey font-bold cursor-pointer">
+                <form method="POST" action="{{ url_for('logout') }}">
+                    <button type="submit">Logout</button>
+                </form>
+            </li>
+        </ul>
+    </nav>
+    {% with messages = get_flashed_messages() %}
+  {% if messages %}
+  <ul class="flash-messages flex items-center justify-center black cursor-pointer text-xl font-medium md:gap-16 gap-3.5
+  flex-row py-2 my-0 md:px-0 border black">
+      {% for message in messages %}
+        <li class="flash-message">{{ message }}</li>
+      {% endfor %}
+    </ul>
+  {% endif %}
+{% endwith %}
+    <main class="md:my-20 my-10 mx-10 md:mx-28">
+    
+        <div class="p-2.5 rounded-lg catergory-border my-0 mx-auto text-center md:w-60">
+            <h1 class="uppercase black text-2xl font-bold">Profile</h1>
+        </div>
+        <section class="mt-5 items-center justify-center flex flex-col">
+            <form method="POST" action="{{ url_for('update_profile') }}" onsubmit="return validateForm();" class="p-8 bg-white rounded shadow-md md:w-3/5 black">
+                <div class="form-group flex flex-col gap-2 mb-4">
+                    <label for="full_name">Full Name</label>
+                    <input type="text" id="full_name" name="full_name" value="{{ current_user.full_name }}" class="w-full p-2 border rounded mb-4 focus:outline-none" required>
+                </div>
+                <div class="form-group flex flex-col gap-2 mb-4">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" value="{{ current_user.email }}" class="w-full p-2 border rounded mb-4 focus:outline-none" readonly>
+                </div>
+                <div class="form-group flex flex-col gap-2 mb-4">
+                    <label for="username">Username</label>
+                    <input type="text" id="username" name="username" value="{{ current_user.username }}" class="w-full p-2 border rounded mb-4 focus:outline-none" readonly>
+                </div>
+                <div class="form-group flex flex-col gap-2 mb-4">
+                    <label for="new_password">New Password</label>
+                    <input type="password" id="new_password" name="new_password" class="w-full p-2 border rounded mb-4 focus:outline-none">
+                </div>
+                <button type="submit" class="w-full p-2 header-btn-bg font-bold text-white rounded my-3 hover:opacity-75">Update Profile</button>
+            </form>
+            
+        </section>
+        
+    </main>
+
+    {% include "footer.html" %}
+
+    <script src="../static/js/hamburger.js"></script>
+    <script>
+        function validateForm() {
+            // Get form field values
+            var full_name = document.getElementById("full_name").value;
+            
+            // Check Full Name format (first name and last name)
+            var fullNamePattern = /^[\w\s]+ [\w\s]+$/;
+            if (!full_name.match(fullNamePattern)) {
+                alert("Full Name should contain both First Name and Last Name.");
+                return false; // Prevent form submission
+            }
+            
+            return true; // Allow form submission if all checks pass
+        }
+    </script>
+</body>
+</html>

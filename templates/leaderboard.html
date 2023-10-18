@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QuizWiz - Test Your Knowledge</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ url_for('static', filename='images/logo.png') }}">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.15/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body>
+    {% include "header.html" %}
+
+    <main class="md:my-20 my-10 mx-10 md:mx-28">
+        <div class="p-2.5 rounded-lg catergory-border my-0 mx-auto text-center md:w-44">
+            <h1 class="uppercase black text-2xl font-bold">leaderboard</h1>
+        </div>
+        <section>
+                <table class="leaderboard-table table-auto">
+                    <thead>
+                        <tr>
+                            <th>Username</th>
+                            <th>Total Scores</th>
+                            <th>Number of Times Played</th>
+                            <th>Most Frequent Category</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for user in leaderboard_data %}
+                        <tr>
+                            <td>{{ user.username }}</td>
+                            <td>{{ user.total_score }}</td>
+                            <td>{{ user.user_score_count }}</td>
+                            <td>{{ user.most_played_category }}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+        </section>
+    </main>
+
+    {% include "footer.html" %}
+
+    <script src="../static/js/hamburger.js"></script>
+    <!-- Include this script block in your HTML, ideally after rendering the leaderboard table -->
+<script>
+    // Fetch the table and rows
+    const leaderboardTable = document.querySelector('.leaderboard-table');
+    const rows = leaderboardTable.querySelectorAll('tbody tr');
+
+    // Create data structures to store accumulated scores and count
+    const userScores = new Map();
+    const userCounts = new Map();
+    const mostFrequentCategories = new Map();
+
+    // Process each row
+    rows.forEach(row => {
+        const username = row.cells[0].textContent;
+        const totalScore = parseInt(row.cells[1].textContent, 10);
+        const count = parseInt(row.cells[2].textContent, 10);
+        const category = row.cells[3].textContent;
+
+        // Accumulate total scores
+        userScores.set(username, (userScores.get(username) || 0) + totalScore);
+
+        // Count the number of times the username appears
+        userCounts.set(username, (userCounts.get(username) || 0) + count);
+
+        // Determine the most frequent category
+        if (!mostFrequentCategories.has(username)) {
+            mostFrequentCategories.set(username, category);
+        }
+    });
+
+    // Update the table content with the modified data
+    rows.forEach(row => {
+        const username = row.cells[0].textContent;
+        row.cells[1].textContent = userScores.get(username);
+        row.cells[2].textContent = userCounts.get(username);
+        row.cells[3].textContent = mostFrequentCategories.get(username);
+    });
+</script>
+
+</body>
+</html>
