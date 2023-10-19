@@ -12,30 +12,32 @@
     {% include "header.html" %}
 
     <main class="md:my-20 my-10 mx-10 md:mx-28">
-        <div class="p-2.5 rounded-lg catergory-border my-0 mx-auto text-center md:w-44">
+        <div class="p-2.5 rounded-lg catergory-border my-0 mx-auto text-center md:w-48">
             <h1 class="uppercase black text-2xl font-bold">leaderboard</h1>
         </div>
-        <section>
-                <table class="leaderboard-table table-auto">
-                    <thead>
-                        <tr>
-                            <th>Username</th>
-                            <th>Total Scores</th>
-                            <th>Number of Times Played</th>
-                            <th>Most Frequent Category</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {% for user in leaderboard_data %}
-                        <tr>
-                            <td>{{ user.username }}</td>
-                            <td>{{ user.total_score }}</td>
-                            <td>{{ user.user_score_count }}</td>
-                            <td>{{ user.most_played_category }}</td>
-                        </tr>
-                        {% endfor %}
-                    </tbody>
-                </table>
+        <section class="mt-10 overflow-auto rounded shadow-md p-6">
+            <table class="leaderboard-table table-auto md:table-fixed w-full">
+                <thead class="border-collapse border-b">
+                    <tr class="text-left">
+                        <th class="md:p-0 p-2">RANK</th>
+                        <th class="md:p-0 p-2">PLAYER</th>
+                        <th class="md:p-0 p-2">SCORE</th>
+                        <th class="md:p-0 p-2">PLAYS</th>
+                        <th class="md:whitespace-nowrap uppercase md:p-0 p-2">Most Frequent Category</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for idx, user in enumerated_leaderboard %}
+                    <tr>
+                        <td>{{ idx }}</td>
+                        <td>{{ user.username }}</td>
+                        <td>{{ user.total_score }}</td>
+                        <td>{{ user.user_score_count }}</td>
+                        <td>{{ user.most_played_category }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>                      
         </section>
     </main>
 
@@ -55,10 +57,11 @@
 
     // Process each row
     rows.forEach(row => {
-        const username = row.cells[0].textContent;
-        const totalScore = parseInt(row.cells[1].textContent, 10);
-        const count = parseInt(row.cells[2].textContent, 10);
-        const category = row.cells[3].textContent;
+        const username = row.cells[1].textContent; // Access username from the second cell
+
+        const totalScore = parseInt(row.cells[2].textContent, 10);
+        const count = parseInt(row.cells[3].textContent, 10);
+        const category = row.cells[4].textContent;
 
         // Accumulate total scores
         userScores.set(username, (userScores.get(username) || 0) + totalScore);
@@ -74,12 +77,13 @@
 
     // Update the table content with the modified data
     rows.forEach(row => {
-        const username = row.cells[0].textContent;
-        row.cells[1].textContent = userScores.get(username);
-        row.cells[2].textContent = userCounts.get(username);
-        row.cells[3].textContent = mostFrequentCategories.get(username);
+        const username = row.cells[1].textContent;
+        row.cells[2].textContent = userScores.get(username);
+        row.cells[3].textContent = userCounts.get(username);
+        row.cells[4].textContent = mostFrequentCategories.get(username);
     });
 </script>
+
 
 </body>
 </html>

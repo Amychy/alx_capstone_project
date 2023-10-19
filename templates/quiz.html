@@ -10,20 +10,27 @@
 </head>
 <body>
     {% include "header.html" %}
-    <div id="timer" class="timer font-semibold text-base my-5 text-center uppercase"></div>
+    <div id="timer" class="timer font-semibold text-base mt-5 md:mt-24 text-center uppercase"></div>
     
-    <main class="flex items-center justify-center my-10 md:my-14 mx-auto">
+    <main class="flex items-center justify-center mb-10 mt-10 md:mt-0 md:mb-14 mx-auto">
         <div class="relative">
             <img class="max-w-xs md:max-w-xl" src="{{ url_for('static', filename='images/Group 3.png') }}">
-            <div class="absolute top-0 left-0 right-0 bottom-0 my-0 mx-auto flex flex-col justify-center items-center pb-0 pt-0 px-20 md:p-10 w-full md:w-96">
+            <div class="absolute top-0 left-0 right-0 bottom-0 my-0 mx-auto flex flex-col justify-center items-center pb-0 pt-0 px-14 md:p-10 w-full md:w-96">
                 <div id="quiz-container" class="uppercase black font-bold text-base text-center">
                     <h1 class="text-xs md:text-lg question" id="question-placeholder"></h1>
                     <div class="mt-2 text-xs md:text-base options" id="options-container">
                         <!-- Options for the currently displayed question will be inserted here -->
                     </div>
-                    <button id="next-button" class="header-btn-bg text-white md:py-3 py-2 px-3 md:px-5 rounded-xl text-sm md:text-lg font-medium mt-4">Next</button>
+                    
+                    <div class="flex items-center justify-between px-0 md:px-10 quiz-btn mt-4">
+                        <button class="hint-btn self-end" id="hint-button">Hint</button>
+                        
+                        <button id="next-button" class="header-btn-bg self-center text-white text-sm font-medium ">Next</button>
+                    </div>
                 </div>
                                 
+            </div>
+            <div id="hint" class="hint text-center font-bold normal-case" style="display: none;">
             </div>
         </div>
         <div id="modal" class="modal" style="display: none;">
@@ -42,6 +49,23 @@
 
     <script src="../static/js/hamburger.js"></script>
     <script>
+        let data; // Declare data in a broader scope
+        const hintButton = document.getElementById('hint-button');
+    const hintDiv = document.getElementById('hint');
+    
+    function toggleHintVisibility() {
+    if (hintDiv.style.display === 'none') {
+        hintDiv.style.display = 'block';
+        hintButton.textContent = 'Hide Hint'; // Change button text to "Hide Hint"
+    } else {
+        hintDiv.style.display = 'none';
+        hintButton.textContent = 'Hint'; // Change button text back to "Show Hint"
+    }
+}
+
+
+    hintButton.addEventListener('click', toggleHintVisibility);
+
          let timer;
         let timeLeft = 50; // Set the timer duration to 50 seconds
         let currentScore = 0;
@@ -105,12 +129,15 @@ let scores = [];  // Store individual scores
                 <h1>Quiz Completed</h1>
                 <p>Total Score = ${currentScore}</p>
                 <div class="flex justify-between items-center gap-5">
-                    <button class="header-btn-bg text-white md:py-3 py-px px-px md:px-5 rounded-xl text-sm md:text-lg font-medium mt-4" onclick="restartQuiz()">Restart Quiz</button>
-                    <button class="header-btn-bg text-white md:py-3 py-px px-px md:px-5 rounded-xl text-sm md:text-lg font-medium mt-4" onclick="location.href='/';">Retake Quiz</button>
+                    <button class=" hint-btn md:py-3 py-2 px-2 md:px-5 rounded-xl text-sm md:text-base mt-4" onclick="restartQuiz()">Restart Quiz</button>
+                    <button class="header-btn-bg text-white md:py-3 py-2 px-2 md:px-5 rounded-xl text-sm md:text-base font-medium mt-4" onclick="location.href='/';">Retake Quiz</button>
                 </div>
             `;
     
             quizContainer.appendChild(completionMessage);
+            // Reset hint and button visibility
+        hintDiv.style.display = 'none';
+        hintButton.style.display = 'none';
         }
 
         function recordScore(score, category) {
@@ -149,9 +176,20 @@ let scores = [];  // Store individual scores
                         if (!quizRunning) {
                             return; // Don't proceed if the quiz is not running
                         }
+
+                        // Reset the hint button text to "Show Hint" for each new question
+    hintButton.textContent = 'Hint';
+
                         const currentQuestion = data.questions[questionIndex];
                         console.log(`Displaying question ${questionIndex + 1} of ${totalQuestions}`);
                         questionElement.textContent = currentQuestion.question;
+
+                        if (currentQuestion.hint !== null) {
+        hintDiv.textContent = currentQuestion.hint;
+    } else {
+        hintDiv.textContent = 'No hint available for this question.';
+    }
+
                         optionsContainer.innerHTML = '';
                         const options = [
                             currentQuestion.option_a,
@@ -183,6 +221,10 @@ let scores = [];  // Store individual scores
             openModal('Incorrect', 'Your answer is incorrect.', currentScore, false, false);
         }
         selectedAnswer.checked = false;
+
+        // Add this line to reset the hint visibility
+        hintShown = false;
+        hintDiv.style.display = 'none';
 
         if (questionIndex < totalQuestions - 1) {
             questionIndex++;
@@ -272,6 +314,7 @@ if (scores.length === numberOfQuestions) {
                 console.error('No category selected.');
             }
         });
+
     </script>  
 
 </body>

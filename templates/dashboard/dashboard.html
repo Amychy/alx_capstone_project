@@ -38,18 +38,20 @@
         <div class="p-2.5 rounded-lg catergory-border my-0 mx-auto text-center md:w-60">
             <h1 class="uppercase black text-2xl font-bold">My Dashboard</h1>
         </div>
-        <section>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Category</th>
-                        <th>Score</th>
-                        <th>Date</th>
+        <section class="mt-10 overflow-auto rounded shadow-md p-6">
+            <table class="leaderboard-table table-auto md:table-fixed w-full">
+                <thead class="border-collapse border-b">
+                    <tr class="text-left">
+                        <th class="md:p-0 p-2">S/N</th>
+                        <th class="md:p-0 p-2">Category</th>
+                        <th class="md:p-0 p-2">Score</th>
+                        <th class="md:p-0 p-2">Date</th>
                     </tr>
                 </thead>
                 <tbody>
                     {% for score in user_scores %}
                         <tr>
+                            <td>{{ loop.index }}</td>
                             <td>{{ score.category }}</td>
                             <td>{{ score.score }}</td>
                             <td>{{ score.timestamp.strftime("%A, %d %B %Y") }}</td>
@@ -57,8 +59,7 @@
                     {% endfor %}
                 </tbody>
             </table>
-            
-        </section>
+        </section>        
         
     </main>
 

@@ -27,8 +27,10 @@
             <input type="username" name="username" placeholder="Username" class="w-full p-2 border rounded mb-4 focus:outline-none">
             <input type="password" name="password" placeholder="Password" class="w-full p-2 border rounded mb-4 focus:outline-none">
             <button type="submit" class="w-full p-2 header-btn-bg font-bold text-white rounded my-3 hover:opacity-75">Login</button>
-            <p>Don't have an account yet? <span onclick="location.href='/register';" class="text-blue-600 cursor-pointer">Please register</span></p>
-            <a href="/forgot_password">Forgot password?</a>
+            <div class="flex gap-2 md:flex-row flex-col justify-between">
+              <p>Don't have an account yet? <span onclick="location.href='/register';" class="text-blue-600 cursor-pointer">Please register</span></p>
+              <a class="text-blue-600 cursor-pointer" href="/forgot_password">Forgot password?</a>
+            </div>
         </form>
         
     </main>

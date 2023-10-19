@@ -73,7 +73,8 @@ def get_quiz_questions():
             'option_b': question.option_b,
             'option_c': question.option_c,
             'option_d': question.option_d,
-            'correct_option': question.correct_option
+            'correct_option': question.correct_option,
+            'hint': question.hint 
         }
         for question in questions
     ]
@@ -162,7 +163,10 @@ def leaderboard():
     # Fetch leaderboard data from your database
     leaderboard_data = get_leaderboard_data()  # You'll need to implement this function
 
-    return render_template('leaderboard.html', leaderboard_data=leaderboard_data)
+    # Enumerate the data, starting at 1
+    enumerated_leaderboard = list(enumerate(leaderboard_data, start=1))
+
+    return render_template('leaderboard.html', enumerated_leaderboard=enumerated_leaderboard)
 
 
 @app.route('/policy')

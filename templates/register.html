@@ -67,9 +67,9 @@
             }
             
             // Check password strength (at least 8 characters, containing letters and numbers)
-            var passwordPattern = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/;
+            var passwordPattern = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*\W).{8,}$/;
             if (!password.match(passwordPattern)) {
-                alert("Password should be at least 8 characters and contain both letters and numbers.");
+                alert("Password should be at least 8 characters long and contain at least one uppercase letter, one lowercase letter, one number, and one special character.");
                 return false; // Prevent form submission
             }
             

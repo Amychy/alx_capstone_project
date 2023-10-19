@@ -10,11 +10,11 @@
 </head>
 <body>
     {% include "header.html" %}
-    <div class="md:max-w-2xl my-0 mx-auto">
-        <h1 class="text-3xl md:text-5xl text-center font-bold text-gray-900 mt-10">
+    <div class="md:max-w-2xl my-0 mx-5 md:mx-auto">
+        <h1 class="text-2xl md:text-5xl text-center font-bold text-gray-900 mt-10">
             Welcome to the QuizWiz!
         </h1>
-        <p class="text-xl text-center text-gray-600 mt-4">
+        <p class="md:text-xl text-lg text-center text-gray-600 mt-4">
             Start the Quiz Game by choosing any of the categories below. You will be given <strong>50 seconds</strong> to answer <strong>5 questions</strong>. Good Luck!
         </p>
     </div>
@@ -40,12 +40,108 @@
             </div>
             <div class="flex md:flex-row flex-col gap-6 md:gap-0 justify-between">
                 {% for category in categories %}
-                    {% if category.name == 'Fun' %}
+                    {% if category.name == 'Mathematics' %}
                     <a class="flex flex-col gap-4 category" href="/quiz?category={{ category.name }}">
                         <img src="{{ url_for('static', filename=category.image_url) }}" alt="{{ category.name }} Image">
                         <p class="font-medium black text-xl">{{ category.name }}</p>
                     </a>
                     {% elif category.name == 'Science' %}
+                    <a class="flex flex-col gap-4 category" href="/quiz?category={{ category.name }}">
+                        <img src="{{ url_for('static', filename=category.image_url) }}" alt="{{ category.name }} Image">
+                        <p class="font-medium black text-xl">{{ category.name }}</p>
+                    </a>
+                    {% endif %}
+                {% endfor %}
+            </div>
+
+            <div class="flex md:flex-row flex-col gap-6 md:gap-0 justify-between">
+                {% for category in categories %}
+                    {% if category.name == 'General Knowledge' %}
+                    <a class="flex flex-col gap-4 category" href="/quiz?category={{ category.name }}">
+                        <img src="{{ url_for('static', filename=category.image_url) }}" alt="{{ category.name }} Image">
+                        <p class="font-medium black text-xl">{{ category.name }}</p>
+                    </a>
+                    {% elif category.name == 'History' %}
+                    <a class="flex flex-col gap-4 category" href="/quiz?category={{ category.name }}">
+                        <img src="{{ url_for('static', filename=category.image_url) }}" alt="{{ category.name }} Image">
+                        <p class="font-medium black text-xl">{{ category.name }}</p>
+                    </a>
+                    {% endif %}
+                {% endfor %}
+            </div>
+
+            <div class="flex md:flex-row flex-col gap-6 md:gap-0 justify-between">
+                {% for category in categories %}
+                    {% if category.name == 'Geography' %}
+                    <a class="flex flex-col gap-4 category" href="/quiz?category={{ category.name }}">
+                        <img src="{{ url_for('static', filename=category.image_url) }}" alt="{{ category.name }} Image">
+                        <p class="font-medium black text-xl">{{ category.name }}</p>
+                    </a>
+                    {% elif category.name == 'Literature' %}
+                    <a class="flex flex-col gap-4 category" href="/quiz?category={{ category.name }}">
+                        <img src="{{ url_for('static', filename=category.image_url) }}" alt="{{ category.name }} Image">
+                        <p class="font-medium black text-xl">{{ category.name }}</p>
+                    </a>
+                    {% endif %}
+                {% endfor %}
+            </div>
+
+            <div class="flex md:flex-row flex-col gap-6 md:gap-0 justify-between">
+                {% for category in categories %}
+                    {% if category.name == 'Movies' %}
+                    <a class="flex flex-col gap-4 category" href="/quiz?category={{ category.name }}">
+                        <img src="{{ url_for('static', filename=category.image_url) }}" alt="{{ category.name }} Image">
+                        <p class="font-medium black text-xl">{{ category.name }}</p>
+                    </a>
+                    {% elif category.name == 'Music' %}
+                    <a class="flex flex-col gap-4 category" href="/quiz?category={{ category.name }}">
+                        <img src="{{ url_for('static', filename=category.image_url) }}" alt="{{ category.name }} Image">
+                        <p class="font-medium black text-xl">{{ category.name }}</p>
+                    </a>
+                    {% endif %}
+                {% endfor %}
+            </div>
+
+            <div class="flex md:flex-row flex-col gap-6 md:gap-0 justify-between">
+                {% for category in categories %}
+                    {% if category.name == 'Sports' %}
+                    <a class="flex flex-col gap-4 category" href="/quiz?category={{ category.name }}">
+                        <img src="{{ url_for('static', filename=category.image_url) }}" alt="{{ category.name }} Image">
+                        <p class="font-medium black text-xl">{{ category.name }}</p>
+                    </a>
+                    {% elif category.name == 'Food and Cuisine' %}
+                    <a class="flex flex-col gap-4 category" href="/quiz?category={{ category.name }}">
+                        <img src="{{ url_for('static', filename=category.image_url) }}" alt="{{ category.name }} Image">
+                        <p class="font-medium black text-xl">{{ category.name }}</p>
+                    </a>
+                    {% endif %}
+                {% endfor %}
+            </div>
+
+            <div class="flex md:flex-row flex-col gap-6 md:gap-0 justify-between">
+                {% for category in categories %}
+                    {% if category.name == 'Technology' %}
+                    <a class="flex flex-col gap-4 category" href="/quiz?category={{ category.name }}">
+                        <img src="{{ url_for('static', filename=category.image_url) }}" alt="{{ category.name }} Image">
+                        <p class="font-medium black text-xl">{{ category.name }}</p>
+                    </a>
+                    {% elif category.name == 'Art and Culture' %}
+                    <a class="flex flex-col gap-4 category" href="/quiz?category={{ category.name }}">
+                        <img src="{{ url_for('static', filename=category.image_url) }}" alt="{{ category.name }} Image">
+                        <p class="font-medium black text-xl">{{ category.name }}</p>
+                    </a>
+                    {% endif %}
+                {% endfor %}
+            </div>
+
+            <div class="flex md:flex-row flex-col gap-6 md:gap-0 justify-between">
+                {% for category in categories %}
+                    {% if category.name == 'Nature and Wildlife' %}
+                    <a class="flex flex-col gap-4 category" href="/quiz?category={{ category.name }}">
+                        <img src="{{ url_for('static', filename=category.image_url) }}" alt="{{ category.name }} Image">
+                        <p class="font-medium black text-xl">{{ category.name }}</p>
+                    </a>
+                    {% elif category.name == 'Animals' %}
                     <a class="flex flex-col gap-4 category" href="/quiz?category={{ category.name }}">
                         <img src="{{ url_for('static', filename=category.image_url) }}" alt="{{ category.name }} Image">
                         <p class="font-medium black text-xl">{{ category.name }}</p>

@@ -15,23 +15,25 @@
         <div class="p-2.5 rounded-lg catergory-border my-0 mx-auto text-center md:w-44">
             <h1 class="uppercase black text-2xl font-bold">Contact us</h1>
         </div>
-        <section class="black mt-20">
-            <h2 class="font-semibold text-xl py-5">Do you have questions, suggestions, or just want to get in touch, we'd love to hear from you! We value your feedback and are always looking to improve, so please don't hesitate to share any comments or suggestions about Quizwiz. Your input is essential in helping us enhance your experience.</h2>
+        <section class="black mt-10">
+            <h2 class="font-medium text-lg py-5 text-justify">Do you have questions, suggestions, or just want to get in touch, we'd love to hear from you! We value your feedback and are always looking to improve, so please don't hesitate to share any comments or suggestions about Quizwiz. Your input is essential in helping us enhance your experience.</h2>
 
-            <form method="POST" action="/contact">
+            <div class="items-center justify-center flex flex-col">
+            <form method="POST" action="/contact" class="p-8 rounded shadow-md md:w-3/5 black bg-gray-100">
+                <h2 class="text-2xl font-bold mb-4 text-center">Contact Form</h2>
                 <label for="name">Name:</label>
-                <input type="text" id="name" name="name" required><br>
+                <input type="text" id="name" name="name" class="w-full p-2 border rounded mb-4 focus:outline-none" required><br>
                 
                 <label for="email">Email:</label>
-                <input type="email" id="email" name="email" required><br>
+                <input type="email" id="email" name="email" class="w-full p-2 border rounded mb-4 focus:outline-none" required><br>
                 
                 <label for="subject">Subject:</label>
-                <input type="text" id="subject" name="subject" required><br>
+                <input type="text" id="subject" name="subject" class="w-full p-2 border rounded mb-4 focus:outline-none" required><br>
                 
                 <label for="message">Message:</label>
-                <textarea id="message" name="message" rows="4" required></textarea><br>
+                <textarea id="message" name="message" rows="4" class="w-full p-2 border rounded mb-4 focus:outline-none" required></textarea><br>
                 
-                <button type="submit">Submit</button>
+                <button class="w-full p-2 footer-bg font-bold text-white rounded my-3 hover:opacity-75" type="submit">Submit</button>
             </form>
             
             

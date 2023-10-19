@@ -113,3 +113,33 @@
 .text-grey:hover {
   color: #404040;
 }
+
+.quiz-btn button {
+  border-radius: 70%;
+  padding: 5px;
+  height: 70px;
+  width: 70px;
+  box-shadow: 0 2px 4px darkslategray;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-size: 12px;
+}
+
+.hint-btn {
+  border: 2px solid #FF4A3F;
+  background-color: #F5F5F5;
+  color: #FF4A3F;
+  font-weight: 900;
+}
+
+@media only screen and (max-width: 600px) {
+  .modal-content {
+    margin: 40% auto;
+  }
+
+  .quiz-btn button {
+    height: 55px;
+    width: 55px;
+  }
+  
+}

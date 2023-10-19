@@ -15,6 +15,7 @@ class Category(db.Model):
         self.image_url = image_url
 
 class QuizQuestion(db.Model):
+    __tablename__ = 'quiz_question'
     id = db.Column(db.Integer, primary_key=True)
     category = db.Column(db.String(50), nullable=False)
     question = db.Column(db.String(255), nullable=False)
@@ -23,6 +24,8 @@ class QuizQuestion(db.Model):
     option_c = db.Column(db.String(100), nullable=False)
     option_d = db.Column(db.String(100), nullable=False)
     correct_option = db.Column(db.String(1), nullable=False)
+    hint = db.Column(db.String(255))  # Field to store hints/explanations
+
 
 class User(db.Model, UserMixin):
     __tablename__ = 'users'
