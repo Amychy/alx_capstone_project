@@ -132,6 +132,26 @@
   font-weight: 900;
 }
 
+/* Initially hide the content */
+.accordion-content {
+  display: none;
+}
+
+/* Style the button */
+.accordion-button {
+  background-color: #333;
+  color: white;
+  padding: 10px;
+  border: none;
+  cursor: pointer;
+}
+
+/* Show the content when the button is active */
+.accordion-content.active {
+  display: block;
+}
+
+
 @media only screen and (max-width: 600px) {
   .modal-content {
     margin: 40% auto;
