@@ -10,10 +10,11 @@ from collections import Counter
 from flask_mail import Mail, Message
 import secrets  # For generating secure tokens
 
+# Initialize the Flask application
 app = Flask(__name__, static_url_path='/static')
 mail = Mail(app)
 
-# Configure the MySQL database URI
+# Configuration settings
 app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://root:@localhost/quizwiz'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['SECRET_KEY'] = '29b37a2a3cce39d4a2ee6a1ef19c91a5'
@@ -21,37 +22,58 @@ app.config['SECRET_KEY'] = '29b37a2a3cce39d4a2ee6a1ef19c91a5'
 app.config['MAIL_SERVER'] = 'smtp.gmail.com'
 app.config['MAIL_PORT'] = 465
 app.config['MAIL_USERNAME'] = 'bizzcozy@gmail.com'
-app.config['MAIL_PASSWORD'] = 'kznsqxtvpchqqrjm'  # Use your App Password here
+app.config['MAIL_PASSWORD'] = 'kznsqxtvpchqqrjm'
 app.config['MAIL_USE_TLS'] = False
 app.config['MAIL_USE_SSL'] = True
 app.config['MAIL_DEFAULT_SENDER'] = ('Quizwiz', 'bizzcozy@gmail.com')
 app.config['MAIL_DEBUG'] = True
 
-
-
-# Initialize the SQLAlchemy instance with the Flask app
+# Initialize the SQLAlchemy and Mail instances with the Flask app
 db.init_app(app)
 mail.init_app(app)
 
+# Initialize the LoginManager
 login_manager = LoginManager(app)
 login_manager.login_view = "login"  # The view name for your login page
 
+# Function to load a user for the LoginManager
 @login_manager.user_loader
 def load_user(user_id):
-    # Assuming you have a User model with an 'id' field
-    # Retrieve the user from your database
+    """
+    Function to load a user for the LoginManager.
+    
+    Args:
+        user_id: The ID of the user to be loaded.
+    
+    Returns:
+        User object if found, None otherwise.
+    """
     user = User.query.get(int(user_id))
     return user
 
+# Root route
 @app.route('/')
 def index():
+    """
+    Route to render the index page.
+
+    Returns:
+        Rendered HTML template.
+    """
     username = current_user.username if current_user.is_authenticated else None
     categories = Category.query.all()
     print(categories)  # Print the retrieved data
     return render_template("index.html", categories=categories, username=username)
 
+# Quiz Route
 @app.route('/quiz')
 def quiz():
+    """
+    Route to render the quiz page.
+
+    Returns:
+        Rendered HTML template for selected category.
+    """
     selected_category = request.args.get('category')
     print(f"Selected Category: {selected_category}")
 
@@ -59,8 +81,15 @@ def quiz():
     print(f"Questions: {questions}")  # Debugging statement
     return render_template("quiz.html", questions=questions)
 
+# Fetch quiz AP1 route
 @app.route('/api/questions', methods=['GET'])
 def get_quiz_questions():
+    """
+    Route to fetch quiz questions, options and hint.
+
+    Returns:
+        Rendered quiz questions, options and hints.
+    """
     selected_category = request.args.get('category')
     questions = QuizQuestion.query.filter_by(category=selected_category).all()
     
