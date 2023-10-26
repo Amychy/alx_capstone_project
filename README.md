@@ -37,13 +37,16 @@ The Quiz Game Project brings several benefits to its users:
 
 To get started with the Quiz Game Project, follow the setup instructions in the [Installation](#installation) section of this README.
 
-## Contributing
+### Installation
 
-We welcome contributions to improve and expand this project. If you're interested in contributing, please check out our [Contributing Guidelines](CONTRIBUTING.md) for more information.
+1. **Clone the repository** to your local machine using the following command:
 
-## License
+   ```bash
+   git clone https://github.com/your-username/quiz-game.git
 
-This project is licensed under the [MIT License](LICENSE.md).
+   ```bash
+   cd quiz-game
+
 
 ## Features and Functionality
 
