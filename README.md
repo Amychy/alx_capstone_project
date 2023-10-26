@@ -186,7 +186,7 @@ These technologies work together to create a seamless and feature-rich quiz game
 ### Work flow
 - This is an image of the flow chart
 - ![image](https://github.com/Amychy/alx_capstone_project/assets/119742258/77f67e7e-7ba6-4411-b372-bb4c80b8c7ac)
-### Screenshots (if available)
+### Screenshots
 
 - Here are some screenshots showcasing the project's appearance and functionality:
 
