@@ -43,10 +43,32 @@ To get started with the Quiz Game Project, follow the setup instructions in the 
 
    ```bash
    git clone https://github.com/your-username/quiz-game.git
+2. Navigate to the project directory:
 
    ```bash
    cd quiz-game
 
+3. Create a virtual environment:
+   ```bash
+   python -m venv venv
+   
+   On macOS and Linux:
+   python3 -m venv venv
+4. Activate the Virtual Environment:
+   ```bash
+   venv\Scripts\activate
+
+   On macOS and Linux:
+   source venv/bin/activate
+5. **Install Dependencies:**
+   Use the provided `requirements.txt` file to install the necessary dependencies. Run the following command:
+   ```bash
+   pip install -r requirements.txt
+
+6. Start the application:
+   ```bash
+   flask run
+**Your Quiz Game Project should now be up and running. You can access it in your web browser at http://localhost:5000.**
 
 ## Features and Functionality
 
