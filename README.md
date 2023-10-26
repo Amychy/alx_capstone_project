@@ -119,9 +119,9 @@ The Quiz Game Project offers a range of features and functionalities to provide 
 - At the end of the quiz, users can view their final score and have the option to restart or retake the quiz.
 - This encourages users to try again and improve their scores.
 
-### 10. Hint and Explanation (Optional)
+### 10. Hint and Explanation
 
-- Optionally, you can include hints or explanations for certain questions to assist users in their learning journey.
+- Hints were included for questions to assist users in their learning journey.
 
 ### 11. User Engagement
 
@@ -157,7 +157,7 @@ The Quiz Game Project is built using a combination of technologies, languages, a
 
 - **HTML**: Used for structuring the web pages, including quiz questions, options, and user interface elements.
 
-- **CSS**: Utilized for styling and layout design, ensuring a visually appealing and responsive user interface.
+- **CSS**: Utilized for styling and layout design, ensuring a visually appealing and responsive user interface. Tailwind CSS was also used to speed up the user interface set up.
 
 - **JavaScript**: Employs client-side scripting to add interactivity, handle quiz functionality, and manage user interactions.
 
@@ -169,11 +169,11 @@ The Quiz Game Project is built using a combination of technologies, languages, a
 
 - **Responsive Design**: CSS media queries and responsive design techniques ensure that the quiz game is accessible and user-friendly on various devices and screen sizes.
 
-- **Git**: Utilized for version control, allowing for easy tracking of changes and collaboration among project contributors.
+- **Git**: Utilized for version control, allowing for easy tracking of changes.
 
-- **Database (Optional)**: Depending on the project's complexity, a database system such as MySQL or SQLite might be used for storing user data, quiz scores, or additional information.
+- **Database**: A database system MySQL was used for storing user data, quiz scores, or additional information.
 
-- **API Integration (Optional)**: If the project includes external data sources or services, APIs may be integrated to fetch or provide information dynamically.
+- **API Integration**: APIs was integrated to fetch or provide information dynamically.
 
 These technologies work together to create a seamless and feature-rich quiz game that offers an engaging and educational experience for users.
 
@@ -190,15 +190,19 @@ These technologies work together to create a seamless and feature-rich quiz game
 
 - Here are some screenshots showcasing the project's appearance and functionality:
 
-![Screenshot 1](url-to-screenshot1)
+![image](https://github.com/Amychy/alx_capstone_project/assets/119742258/b418de10-6c33-4f9f-8e91-0ce03961f015)
+
 *Description of Screenshot 1.*
+This is the landing page, where the user selects their preferred quiz category
 
-![Screenshot 2](url-to-screenshot2)
+![image](https://github.com/Amychy/alx_capstone_project/assets/119742258/60976266-cb43-4beb-a97c-b566c53aa872)
+
 *Description of Screenshot 2.*
+This is how the quiz page looks, a user is allowed to select an option
 
-### Live Demo (if available)
-
-- If a live demo of the Quiz Game Project is available, you can access it [here](demo-url).
+### Live Demo
+- A video Demo of the Quiz Game - [Quizwiz](https://www.loom.com/share/98db02028b084d7bba15d5c201cdee7e?sid=811ae415-a1ce-4002-bb77-b3e2eaa7ce4f)
+- A live demo of the Quiz Game Project is available, you can access it [here](http://cozyamy.pythonanywhere.com) on Pythonanywhere
 
 ## Roadmap and Future Enhancements
 
